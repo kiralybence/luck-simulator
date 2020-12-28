@@ -1,0 +1,34 @@
+@media (max-width: 575.98px) {
+    .flip-amount {
+        width: 100px;
+    }
+
+    .lottery-picker {
+        margin-bottom: 20px;
+    }
+}
+
+.lottery-picker td {
+    border: 1px solid grey;
+    text-align: center;
+    height: 40px;
+    cursor: pointer;
+}
+
+.lottery-picker .clicked {
+    background-color: red;
+    color: white;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer, Legacy Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#random-image canvas {
+    border: 1px solid grey;
+}

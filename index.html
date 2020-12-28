@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Luck Simulator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container my-4">
+    <div id="accordion">
+        <!-- Flip a coin -->
+        <div class="card my-3" id="coin-flipper">
+            <div class="card-header" id="coin-flipper-heading">
+                <h5 class="mb-0">
+                    <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#coin-flipper-collapse"
+                        aria-expanded="false"
+                        aria-controls="coin-flipper-collapse"
+                    >
+                        #1 - Flip a coin
+                    </button>
+                </h5>
+            </div>
+
+            <div
+                id="coin-flipper-collapse"
+                class="collapse"
+                aria-labelledby="coin-flipper-heading"
+                data-parent="#accordion"
+            >
+                <div class="card-body">
+                    <div class="form-inline">
+                        Flip a coin <input type="number" class="form-control form-control-sm mx-2 flip-amount" value="100"> times.
+                    </div>
+
+                    <button class="btn btn-primary my-4 go">Go</button>
+
+                    <br>
+                    Heads: <span class="heads-counter">0</span>
+                    <br>
+                    Tails: <span class="tails-counter">0</span>
+
+                    <div class="alert alert-warning mt-4 mb-0" role="alert">
+                        <b>Warning:</b> High values might cause your browser to freeze.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lottery -->
+        <div class="card my-3" id="lottery">
+            <div class="card-header" id="lottery-heading">
+                <h5 class="mb-0">
+                    <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#lottery-collapse"
+                        aria-expanded="false"
+                        aria-controls="lottery-collapse"
+                    >
+                        #2 - Lottery
+                    </button>
+                </h5>
+            </div>
+
+            <div
+                id="lottery-collapse"
+                class="collapse"
+                aria-labelledby="lottery-heading"
+                data-parent="#accordion"
+            >
+                <div class="card-body">
+                    <p>Pick 5 numbers.</p>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <table class="lottery-picker noselect w-100"></table>
+                        </div>
+                        <div class="col-sm-7">
+                            <button class="btn btn-primary mb-4 go" disabled>Go</button>
+
+                            <br>
+                            2 matches: <span class="lottery-tries-2">0</span> tries
+                            <br>
+                            3 matches: <span class="lottery-tries-3">0</span> tries
+                            <br>
+                            4 matches: <span class="lottery-tries-4">0</span> tries
+                            <br>
+                            5 matches: <span class="lottery-tries-5">0</span> tries
+
+                            <hr>
+
+                            Time spent: <span class="lottery-duration">0</span> seconds
+                            <br>
+                            Speed: <span class="lottery-speed">0</span> tries/seconds
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger mt-3 mb-0" role="alert">
+                        <b>Warning:</b> This one <b>will</b> freeze your browser for 20-40 seconds, as it can take up to 100+ million calculations to finish.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Random image -->
+        <div class="card my-3" id="random-image">
+            <div class="card-header" id="random-image-heading">
+                <h5 class="mb-0">
+                    <button
+                        class="btn btn-link collapsed"
+                        data-toggle="collapse"
+                        data-target="#random-image-collapse"
+                        aria-expanded="false"
+                        aria-controls="random-image-collapse"
+                    >
+                        #3 - Random image generator
+                    </button>
+                </h5>
+            </div>
+
+            <div
+                id="random-image-collapse"
+                class="collapse"
+                aria-labelledby="random-image-heading"
+                data-parent="#accordion"
+            >
+                <div class="card-body">
+                    <p>This is a 300x300 image. It's completely randomly generated. At first it doesn't seem interesting, but think about it.</p>
+                    <p>The possible combinations of an image are limited. A pixel is capable of showing 16,777,216 different colors. That means there are 1,509,949,440,000 possible combinations of a 300x300 image. This includes the image of you shaking the president's hands or... anything that your mind can imagine.</p>
+                    <p>There's a 1/1,509,949,440,000 chance of generating the image you want to see.</p>
+
+                    <canvas width="300" height="300" class="mt-2"></canvas>
+
+                    <br>
+                    <button class="btn btn-primary mt-3 go">Go</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
